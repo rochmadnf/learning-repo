@@ -9,7 +9,7 @@ export default function Register() {
     e.preventDefault();
     const formData = new FormData(e.target);
     try {
-      await axios.post("http://api.mention.test/api/register", formData);
+      await axios.post("/register", formData);
       e.target.reset();
       setFormError("");
     } catch (error) {

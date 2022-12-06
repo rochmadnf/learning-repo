@@ -1,18 +1,23 @@
 import axios from "axios";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
+import localForage from "localforage";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [formError, setFormError] = useState("");
   const [alert, setAlert] = useState("");
+  const navigate = useNavigate();
 
   const loginHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     try {
-      await axios.post(`http://api.mention.test/api/login`, formData);
+      const res = await axios.post(`/login`, formData);
+      localForage.setItem("tokenUser", res.data.token);
       setAlert("");
       setFormError("");
+      navigate("/", { replace: true });
     } catch (error) {
       setAlert(error.response.data.message);
       setFormError(error.response.data);
@@ -51,7 +56,7 @@ export default function Login() {
                     id="email"
                     name="email"
                     className={
-                      formError?.email
+                      alert || formError?.email
                         ? "form-control is-invalid"
                         : "form-control"
                     }
@@ -75,7 +80,7 @@ export default function Login() {
                     id="password"
                     name="password"
                     className={
-                      formError?.password
+                      alert || formError?.password
                         ? "form-control is-invalid"
                         : "form-control"
                     }
