@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 export default function Register() {
   const [formError, setFormError] = useState("");
@@ -18,6 +19,13 @@ export default function Register() {
 
   return (
     <div className="container">
+      <Helmet>
+        <title>Mention &mdash; Register</title>
+        <meta
+          name="description"
+          content="this is a register page of Mention sites"
+        />
+      </Helmet>
       <div className="row">
         <div className="col-md-5">
           <div className="card">

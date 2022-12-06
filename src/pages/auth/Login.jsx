@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 export default function Login() {
   const [formError, setFormError] = useState("");
@@ -19,6 +20,13 @@ export default function Login() {
   };
   return (
     <div className="container">
+      <Helmet>
+        <title>Mention &mdash; Login</title>
+        <meta
+          name="description"
+          content="this is a login page of Mention sites"
+        />
+      </Helmet>
       <div className="row">
         <div className="col-md-5">
           {alert && (
