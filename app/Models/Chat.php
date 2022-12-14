@@ -11,6 +11,11 @@ class Chat extends Model
 
     protected $guarded = ['id'];
 
+    public function scopePerDays($query)
+    {
+        return $query->groupBy('created_at');
+    }
+
     public function sender()
     {
         return $this->belongsTo(User::class, 'sender_id');

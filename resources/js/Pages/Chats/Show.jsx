@@ -1,5 +1,8 @@
 import AppLayout from "@/Layouts/AppLayout";
+import { Inertia } from "@inertiajs/inertia";
 import { Head, useForm, usePage } from "@inertiajs/inertia-react";
+import moment from "moment-timezone";
+import { useEffect } from "react";
 
 export default function Show(props) {
     const { auth } = usePage().props;
@@ -16,6 +19,16 @@ export default function Show(props) {
         });
     };
 
+    Echo.channel("chats").listen("ChatMessageSent", ({ chat }) => {
+        Inertia.reload({
+            preserveScroll: true,
+            only: ["chats"],
+            onStart: () => {
+                reset("messages");
+            },
+        });
+    });
+
     return (
         <div className="flex h-screen flex-col justify-between">
             <Head>
@@ -31,13 +44,18 @@ export default function Show(props) {
                         {chats.map((chat) => (
                             <div
                                 key={chat.id}
-                                className={`w-fit max-w-[80%] rounded-full px-5 py-2 ${
+                                className={`flex w-fit max-w-[90%] flex-col rounded-lg p-3 lg:max-w-[80%] ${
                                     auth.user.id === chat.sender_id
                                         ? "self-end bg-green-500 text-white"
                                         : "bg-slate-200 text-gray-900"
                                 }`}
                             >
                                 <p>{chat.messages}</p>
+                                <small className="w-fit self-end text-[0.625rem]">
+                                    {moment(chat.created_at)
+                                        .tz(moment.tz.guess())
+                                        .format("D-M-Y, H:mm")}
+                                </small>
                             </div>
                         ))}
                     </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\ChatMessageSent;
 use App\Http\Controllers\{ChatController, HomeController};
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
