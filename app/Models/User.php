@@ -18,7 +18,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'uuid',
         'name',
+        'username',
         'email',
         'password',
     ];
@@ -41,4 +43,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function booted()
+    {
+        static::creating(fn (User $user) => $user->uuid = str()->uuid());
+    }
 }
