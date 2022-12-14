@@ -14,7 +14,7 @@ export default function AppLayout({ title, children }) {
                             <Link
                                 key={user.id}
                                 href={route("chats.show", user.username)}
-                                className={`block ${
+                                className={`block cursor-pointer hover:text-gray-900 ${
                                     route().current("chats.show", user.username)
                                         ? "font-semibold text-gray-900"
                                         : "text-gray-600"

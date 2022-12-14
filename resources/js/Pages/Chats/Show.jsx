@@ -1,8 +1,9 @@
 import AppLayout from "@/Layouts/AppLayout";
-import { Head, useForm } from "@inertiajs/inertia-react";
+import { Head, useForm, usePage } from "@inertiajs/inertia-react";
 
 export default function Show(props) {
-    const { user } = props;
+    const { auth } = usePage().props;
+    const { user, chats } = props;
 
     const { data, setData, reset, errors, post } = useForm({ messages: "" });
 
@@ -25,9 +26,26 @@ export default function Show(props) {
                 {user.name}
             </div>
             <div className="flex-1 overflow-y-auto p-4">
-                <div className="italic text-gray-600">
-                    No messages here yet...
-                </div>
+                {chats.length ? (
+                    <div className="flex flex-col space-y-2">
+                        {chats.map((chat) => (
+                            <div
+                                key={chat.id}
+                                className={`w-fit max-w-[80%] rounded-full px-5 py-2 ${
+                                    auth.user.id === chat.sender_id
+                                        ? "self-end bg-green-500 text-white"
+                                        : "bg-slate-200 text-gray-900"
+                                }`}
+                            >
+                                <p>{chat.messages}</p>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="italic text-gray-600">
+                        No messages here yet...
+                    </div>
+                )}
             </div>
             <div className="border-t border-t-slate-300">
                 <form onSubmit={submitHandler}>
