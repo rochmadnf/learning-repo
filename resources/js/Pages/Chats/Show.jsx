@@ -1,8 +1,20 @@
 import AppLayout from "@/Layouts/AppLayout";
-import { Head } from "@inertiajs/inertia-react";
+import { Head, useForm } from "@inertiajs/inertia-react";
 
 export default function Show(props) {
     const { user } = props;
+
+    const { data, setData, reset, errors, post } = useForm({ messages: "" });
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        post(route("chats.store", user.username), {
+            onSuccess: () => {
+                reset("messages");
+            },
+        });
+    };
+
     return (
         <div className="flex h-screen flex-col justify-between">
             <Head>
@@ -18,13 +30,19 @@ export default function Show(props) {
                 </div>
             </div>
             <div className="border-t border-t-slate-300">
-                <input
-                    type="text"
-                    placeholder="Your messages..."
-                    className="form-input w-full border-0 placeholder:font-light placeholder:italic focus:border-0 focus:outline-none focus:ring-0 focus:ring-blue-500"
-                    id="messages"
-                    name="messages"
-                />
+                <form onSubmit={submitHandler}>
+                    <input
+                        value={data.messages}
+                        onChange={(e) =>
+                            setData({ ...data, messages: e.target.value })
+                        }
+                        type="text"
+                        placeholder="Your messages..."
+                        className="form-input w-full border-0 placeholder:font-light placeholder:italic focus:border-0 focus:outline-none focus:ring-0 focus:ring-blue-500"
+                        id="messages"
+                        name="messages"
+                    />
+                </form>
             </div>
         </div>
     );

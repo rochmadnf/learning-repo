@@ -10,6 +10,7 @@ Route::middleware('auth')->group(function () {
     Route::controller(ChatController::class)->prefix('chats')->group(
         function () {
             Route::get('/{user:username}', 'show')->name("chats.show");
+            Route::post('/{user:username}', 'store')->name("chats.store");
         }
     );
 });
