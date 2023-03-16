@@ -4,26 +4,14 @@
             Home
         </h1>
 
-        <nav class="ml-8">
-            <ul>
-                <li>
-                    <Link href="/">Home</Link>
-                </li>
-                <li>
-                    <Link href="/users">Users</Link>
-                </li>
-                <li>
-                    <Link href="/settings">Settings</Link>
-                </li>
-            </ul>
-        </nav>
+        <Nav />
     </div>
 </template>
 
 <script>
-import { Link } from '@inertiajs/vue3';
+import Nav from '@/Components/Nav.vue';
 
 export default {
-    components: { Link }
+    components: { Nav }
 }
 </script>
