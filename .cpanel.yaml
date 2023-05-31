@@ -1,0 +1,5 @@
+---
+deployment:
+tasks:
+- export DEPLOYPATH=/home/u1659191/learning-repo
+- /bin/cp -r * $DEPLOYPATH
