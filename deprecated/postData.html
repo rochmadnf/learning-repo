@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Kirim Data Antares Rifal Abdullah</title>
+    <style media="screen">
+      input {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      div {
+        border: 1px solid #000;
+        margin-top: 5px;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="">
+      <label for="voltage">Presentase Batterai range nilai (1 - 100)</label>
+      <input type="tel" id="battery" value="0">
+    </div>
+
+    <div class="">
+      <label for="voltage">Voltage range nilai (1 - 12)</label>
+      <input type="tel" id="voltage" value="0">
+    </div>
+
+    <div class="">
+      <label for="lamp">Kondisi lampu, isi 0 = mati atau 1 = nyala</label>
+      <input type="tel" id="lamp" value="0" min="0" max="1">
+    </div>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script type="text/javascript">
+      console.log(moment().unix());
+      fetch(`https://platform.antares.id:8443/~/antares-cse/antares-id/Tugas-Akhir/monitor-tegangan`, {
+        headers: {
+          "X-M2M-Origin": "96d8d15168685fb1:b12ade5c98e49ace",
+          "Content-Type": "application/json",
+          "Accept": "application/json;ty=4",
+        },
+        method: "post",
+        credentials: "same-origin",
+        body: JSON.stringify({
+          "m2m:cin": {
+            "con": "{\"batteryPercentage\": 94, \"voltage\": 11, \"lampStatus\": 0, \"currTime\": " + moment().unix() + "}"
+          }
+        }),
+      });
+    </script>
+  </body>
+</html>
