@@ -19,4 +19,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test-send', [WebTokenController::class, 'sendNotification']);
+Route::get('/test-send', [WebTokenController::class, 'pageKirim']);
+Route::post('/send-push', [WebTokenController::class, 'sendNotification'])->name('sendPush');

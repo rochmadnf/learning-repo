@@ -35,8 +35,10 @@ function requestSubs() {
 
 onMessage(messaging, (payload) => {
     console.log("data : ", payload);
-    // alert("naria notifikasi");
-    new Notification("xxx", { body: "xdf", url: "https://rochmadnf.my.id" });
+    new Notification(payload?.data?.title, {
+        body: payload?.data?.body,
+        url: "https://rochmadnf.my.id",
+    });
 });
 
 getToken(messaging, { vapidKey: import.meta.env.VITE_FIREBASE_KEY_PAIR })

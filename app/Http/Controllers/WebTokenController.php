@@ -22,6 +22,11 @@ class WebTokenController extends Controller
         return response()->json('Token successfully stored!.', 201);
     }
 
+    public function pageKirim()
+    {
+        return view('webpush');
+    }
+
     public function sendNotification(Request $request)
     {
         fcm()
@@ -29,14 +34,16 @@ class WebTokenController extends Controller
             ->priority('normal')
             ->timeToLive(0)
             ->data([
-                'title' => 'Test FCM',
-                'body' => 'This is a test of FCM',
+                'title' => $request->title,
+                'body' => $request->description,
             ])
             ->notification([
-                'title' => 'Test FCM',
-                'body' => 'This is a test of FCM',
+                'title' => $request->title,
+                'body' => $request->description,
             ])->enableResponseLog()
             ->send();
+
+        return redirect()->back()->withInput($request->only('title', 'description'));
     }
     // {
     //     //firebaseToken berisi seluruh user yang memiliki device_token. jadi notifnya akan dikirmkan ke semua user

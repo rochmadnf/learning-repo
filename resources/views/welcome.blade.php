@@ -9,7 +9,10 @@
 </head>
 
 <body>
-    <h1>Hello World!</h1>
+    <h1>Hello Berrro</h1>
+    <blockquote>
+        wowowowowowowo
+    </blockquote>
     @vite(['resources/js/app.js'])
 </body>
 
