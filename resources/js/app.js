@@ -37,7 +37,11 @@ onMessage(messaging, (payload) => {
     console.log("data : ", payload);
     new Notification(payload?.data?.title, {
         body: payload?.data?.body,
-        url: "https://rochmadnf.my.id",
+        icon: "https://rochmadnf.my.id/assets/images/logoku.jpg",
+        data: {
+            url: "https://rochmadnf.my.id",
+            status: "open",
+        },
     });
 });
 
