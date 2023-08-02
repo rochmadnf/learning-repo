@@ -15,12 +15,13 @@
         style="width:40%; justify-content:center; align-items:center; display: flex; flex-direction: column; gap: 1em;">
         @csrf
         <div>
-            <input style="width: 100%;" type="text" name="title" placeholder="title">
+            <input style="width: 100%;" type="text" name="title" placeholder="title"
+                value="{{ old('title') ?? '' }}">
 
         </div>
         <div>
             <textarea name="description" cols="30" rows="10">
-            {{ old('description') }}
+            {{ old('description') ?? '' }}
             </textarea>
         </div>
 
