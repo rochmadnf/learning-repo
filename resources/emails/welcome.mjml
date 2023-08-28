@@ -1,0 +1,43 @@
+<mjml>
+  <mj-head>
+    <mj-raw>
+      <meta name="color-scheme" content="light" />
+      <meta name="supported-color-schemes" content="light" />
+    </mj-raw>
+
+    <mj-style>
+      .dark-text {
+      background-color: blue;
+      }
+
+      .dark-text div {
+      color: yellow !important;
+      }
+
+      @media (prefers-color-scheme: dark) {
+      .dark-text {
+      background-color: red;
+      }
+
+      .dark-text div {
+      color: white !important;
+      }
+    </mj-style>
+
+  </mj-head>
+  <mj-body>
+    <mj-section>
+      <mj-column>
+
+        <mj-image border-radius="9999px" width="100px" src="https://rochmadnf.my.id/assets/images/logoku.jpg"></mj-image>
+
+        <mj-divider border-color="#EF4444"></mj-divider>
+
+        <mj-text font-size="20px" color="#F45E43" font-family="helvetica">$name</mj-text>
+
+        <mj-text css-class="dark-text">Mode</mj-text>
+
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
