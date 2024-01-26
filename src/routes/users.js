@@ -3,9 +3,11 @@ const express = require('express');
 const {getAllUsers, createNewUser} = require('../controller/users.js')
 
 const router = express.Router();
+// CREATE - POST
+router.post('', createNewUser);
 
+// READ - GET
 router.get('', getAllUsers);
 
-router.post('', createNewUser);
 
 module.exports = router;
