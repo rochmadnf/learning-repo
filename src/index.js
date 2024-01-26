@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 
 // routes group
@@ -8,8 +9,6 @@ const middleware = require("./middleware");
 
 const app = express();
 
-const port = 4173;
-
 // s:middleware
 app.use(middleware.logs.logRequest);
 app.use(express.json());
@@ -17,6 +16,6 @@ app.use(express.json());
 
 app.use("/users", routes.users);
 
-app.listen(port, () => {
-  console.log(`App listening at http://127.0.0.1:${port}`);
+app.listen(process.env.APP_PORT, () => {
+  console.log(`App listening at http://127.0.0.1:${process.env.APP_PORT}`);
 });
