@@ -1,0 +1,108 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Express-MySQL",
+    "dateExported": "2024-01-26T03:04:17.156Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "0f847e80-5cc7-4133-b6d2-453b868be43e",
+            "colId": "725a0333-930a-4006-8753-2fde44a9a812",
+            "containerId": "",
+            "name": "Home",
+            "url": "{{app_url}}",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-01-26T01:34:15.930Z",
+            "modified": "2024-01-26T01:34:34.758Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "11a3ea78-023d-458b-a3ce-035938565a8b",
+            "colId": "725a0333-930a-4006-8753-2fde44a9a812",
+            "containerId": "",
+            "name": "Home Post",
+            "url": "{{app_url}}",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-01-26T01:38:13.781Z",
+            "modified": "2024-01-26T01:38:20.727Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "9bc3286e-b78e-440d-8fe5-3362b056e109",
+            "colId": "725a0333-930a-4006-8753-2fde44a9a812",
+            "containerId": "",
+            "name": "Get Users",
+            "url": "{{app_url}}/users",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-01-26T01:54:38.483Z",
+            "modified": "2024-01-26T02:02:16.130Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "baaa539c-95c7-4afb-9802-1a54a5e520f1",
+            "colId": "725a0333-930a-4006-8753-2fde44a9a812",
+            "containerId": "",
+            "name": "Create Users",
+            "url": "{{app_url}}/users",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-01-26T02:24:01.510Z",
+            "modified": "2024-01-26T02:24:48.180Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Rochmad Nurul Fahmi\",\n  \"email\": \"rochmadnf@gmail.com\",\n  \"address\": \"Jl. Cempedak\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2ae2c5c7-f2d0-4691-bd7e-049251d0abfc",
+            "colId": "725a0333-930a-4006-8753-2fde44a9a812",
+            "containerId": "",
+            "name": "Update User",
+            "url": "{{app_url}}/users/1",
+            "method": "PATCH",
+            "sortNum": 50000,
+            "created": "2024-01-26T02:31:41.637Z",
+            "modified": "2024-01-26T02:34:39.270Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Fahmi\",\n  \"email\": \"fahmi@mail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "cb76bb87-a0fa-4598-880e-44c5103f233f",
+            "colId": "725a0333-930a-4006-8753-2fde44a9a812",
+            "containerId": "",
+            "name": "Delete User",
+            "url": "{{app_url}}/users/1",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2024-01-26T02:39:54.125Z",
+            "modified": "2024-01-26T02:40:08.421Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Fahmi\",\n  \"email\": \"fahmi@mail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

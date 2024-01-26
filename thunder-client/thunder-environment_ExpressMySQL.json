@@ -1,0 +1,12 @@
+{
+    "client": "Thunder Client",
+    "environmentName": "ExpressMySQL",
+    "dateExported": "2024-01-26T03:05:17.811Z",
+    "version": "1.0",
+    "variables": [
+        {
+            "name": "app_url",
+            "value": "http://127.0.0.1:4173"
+        }
+    ]
+}
