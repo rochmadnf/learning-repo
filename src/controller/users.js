@@ -3,7 +3,7 @@ const model = require("../models/users");
 const getAllUsers = async (req, res) => {
   try {
     const [data] = await model.getAllUsers();
-    res.json({
+    res.status(200).json({
       message: "GET all users successfully",
       data: data,
     });
@@ -20,7 +20,7 @@ const createNewUser = async (req, res) => {
   try {
     await model.createNewUser(body);
 
-    res.json({
+    res.status(201).json({
       message: "CREATE new user successfully",
       data: body,
     });
@@ -35,7 +35,7 @@ const createNewUser = async (req, res) => {
 const updateUser = (req, res) => {
   const { userId } = req.params;
   console.log(`user_id: ${userId}`);
-  res.json({
+  res.status(200).json({
     message: "UPDATE user successfully",
     data: req.body,
   });
@@ -43,7 +43,7 @@ const updateUser = (req, res) => {
 
 const deleteUser = (req, res) => {
   const { userId } = req.params;
-  res.json({
+  res.status(200).json({
     message: "DELETE user successfully",
     data: {
       id: Number(userId),
