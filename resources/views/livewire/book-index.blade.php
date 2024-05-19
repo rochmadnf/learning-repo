@@ -18,7 +18,17 @@
                         <div class="mt-1 text-red-500">{{ $message }}</div>
                     @enderror
                 </div>
-                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg font-medium">Submit</button>
+                <button type="submit"
+                    class="bg-blue-500 text-white py-2 px-4 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer">
+                    <span wire:loading.delay.long>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                            class="size-5 fill-white animate-spin mx-auto">
+                            <path
+                                d="M256 116a52 52 0 1 1 0-104 52 52 0 1 1 0 104zm0 364a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM448 288a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM32 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm399.4-96.2A56 56 0 1 1 352.2 80.6a56 56 0 1 1 79.2 79.2zM97.6 414.4a32 32 0 1 1 45.3-45.3A32 32 0 1 1 97.6 414.4zm271.5 0a32 32 0 1 1 45.3-45.3 32 32 0 1 1 -45.3 45.3zM86.3 86.3a48 48 0 1 1 67.9 67.9A48 48 0 1 1 86.3 86.3z" />
+                        </svg>
+                    </span>
+                    <span wire:loading.remove.delay.long>Submit</span>
+                </button>
             </form>
         </div>
     </div>

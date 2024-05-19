@@ -16,6 +16,7 @@ class BookForm extends Form
     public function create()
     {
         $this->validate();
+        sleep(10);
 
         auth()->user()->books()->create([
             'title' => $this->title,
