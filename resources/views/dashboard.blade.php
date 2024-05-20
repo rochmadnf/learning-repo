@@ -7,7 +7,10 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <livewire:book-index />
+            <div class="space-y-2">
+                <livewire:create-book />
+                <livewire:book-index />
+            </div>
         </div>
     </div>
 </x-app-layout>
