@@ -59,8 +59,9 @@ export function Navbar() {
                             <DropdownMenu>
                                 <DropdownMenuTrigger>
                                     <Avatar className="size-8">
-                                        <AvatarImage src="https://github.com/rochmadnf.png" />
-                                        <AvatarFallback>RD</AvatarFallback>
+                                        {/* <AvatarImage src="https://github.com/rochmadnf.png" /> */}
+                                        <AvatarImage src={auth.user.gravatar} />
+                                        <AvatarFallback>{auth.user.initials}</AvatarFallback>
                                     </Avatar>
                                 </DropdownMenuTrigger>
 
