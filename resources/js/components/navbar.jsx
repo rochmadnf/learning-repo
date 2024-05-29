@@ -13,6 +13,8 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { IconChevronDown } from '@irsyadadl/paranoid';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { Button } from '@/components/ui/button';
 
 export function NavLink({ className, ...props }) {
     return (
@@ -54,7 +56,8 @@ export function Navbar() {
                         </DropdownMenu>
                     </div>
 
-                    <div className="flex items-center gap-x-4">
+                    <div className="flex items-center gap-x-2">
+                        <ThemeToggle />
                         {auth.user ? (
                             <DropdownMenu>
                                 <DropdownMenuTrigger>
@@ -78,7 +81,9 @@ export function Navbar() {
                                 </DropdownMenuContent>
                             </DropdownMenu>
                         ) : (
-                            <NavLink href="/login">Login</NavLink>
+                            <Button asChild variant="outline">
+                                <Link href="/login">Login</Link>
+                            </Button>
                         )}
                     </div>
                 </div>
