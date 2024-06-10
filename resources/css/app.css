@@ -19,3 +19,25 @@
         --secondary-foreground: 39 6% 47%;
     }
 }
+
+@layer components {
+    .btn {
+        @apply rounded-lg px-4 py-2 text-sm outline-none;
+    }
+
+    .btn-primary {
+        @apply bg-primary text-white transition-all hover:bg-primary-dark focus:bg-primary-dark focus:ring-4 focus:ring-primary/15;
+    }
+
+    .btn-danger {
+        @apply bg-danger text-white transition-all hover:bg-danger-dark focus:bg-danger-dark focus:ring-4 focus:ring-danger/15;
+    }
+
+    .btn-success {
+        @apply bg-success text-white transition-all hover:bg-success-dark focus:bg-success-dark focus:ring-4 focus:ring-success/15;
+    }
+
+    .btn-secondary {
+        @apply border border-secondary bg-background text-foreground transition-all hover:bg-secondary focus:bg-secondary focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-background;
+    }
+}

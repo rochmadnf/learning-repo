@@ -33,8 +33,8 @@ export default {
           dark: colors.red[700],
         },
         success: {
-          DEFAULT: colors.red[600],
-          dark: colors.red[700],
+          DEFAULT: colors.emerald[600],
+          dark: colors.emerald[700],
         },
       },
     },
