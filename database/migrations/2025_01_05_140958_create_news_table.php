@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->longText('content');
+            $table->string('thumbnail');
+            $table->enum('is_featured', ['featured', 'not_featured'])->default('not_featured');
+            $table->foreignIdFor(\App\Models\Category::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(\App\Models\Author::class)->constrained()->cascadeOnDelete();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
