@@ -11,6 +11,12 @@ class Category extends Model
     use SoftDeletes;
     protected $fillable = ['name', 'slug', 'icon'];
 
+    protected function setNameAttribute(string $value): void
+    {
+        $this->attributes['name'] = $value;
+        $this->attributes['slug'] = str()->of($value)->slug->value;
+    }
+
     public function news(): HasMany
     {
         return $this->hasMany(News::class);
