@@ -9,6 +9,10 @@ use Inertia\Inertia;
 Route::get('/', Controllers\HomeController::class)->name('welcome');
 Route::get('/dashboard', Controllers\DashboardController::class)->middleware('auth')->name('dashboard');
 
+Route::resource('articles', Controllers\ArticleController::class)
+    ->scoped(['article' => 'slug'])
+    ->only('show', 'index');
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
