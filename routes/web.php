@@ -17,4 +17,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware(['auth', 'permission:create user'])->get('user/create', fn() => view('create-user'))->name('user.create');
+
 require __DIR__.'/auth.php';
