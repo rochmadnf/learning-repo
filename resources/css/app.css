@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222 84% 5%;
+
+        --secondary: 210 40% 96%;
+        --secondary-foreground: 215 16% 47%;
+
+        --primary: 0.623 0.214 259.815;
+
+        --success: 0.696 0.17 162.48;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+    }
+
+    .dark {
+        --background: 200 6% 10%;
+        --foreground: 210 40% 98%;
+
+        --secondary: 210 6% 13%;
+        --secondary-foreground: 39 6% 47%;
+
+        --primary: 0.488 0.243 264.376;
+
+        --success: 0.508 0.118 165.612;
+
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+    }
+}
