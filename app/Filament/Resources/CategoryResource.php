@@ -5,9 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CategoryResource\Pages;
 use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
-use Filament\Forms\{Form, Set, Components, Get};
-// use Filament\Forms\Form;
-// use Filament\Forms\Set;
+use Filament\Forms\{Form, Set, Components};
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -18,7 +16,7 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-folder-open';
 
     public static function form(Form $form): Form
     {
@@ -27,16 +25,11 @@ class CategoryResource extends Resource
                 Components\TextInput::make('name')
                     ->required()
                     ->afterStateUpdated(
-                        function (Set $set, Get $get, ?string $state) {
-                            // if (is_null(Category::firstWhere('slug', $get('slug')))) {
-                            //     $set('slug', str()->of($state)->slug()->value);
-                            // } else {
-                            //     $set('slug', str()->of($state . " " . str()->random(5))->slug()->value);
-                            // }
+                        function (Set $set, ?string $state) {
                             $set('slug', str()->of($state)->slug()->value);
                         }
                     )
-                    ->live(debounce: 300)
+                    ->live(debounce: 500)
                     ->maxLength(255),
                 Components\TextInput::make('slug')
                     ->required()
@@ -49,13 +42,16 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')->searchable(),
+                Tables\Columns\TextColumn::make('slug'),
+                Tables\Columns\ImageColumn::make('icon'),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()->label('Ubah Data'),
+                Tables\Actions\DeleteAction::make()->label('Hapus'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
