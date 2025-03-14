@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('chat_colors', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->foreignUuid('from_id')->constrained('users')->cascadeOnUpdate()->restrictOnDelete();
+            $table->uuidMorphs('to');
+            $table->string('message_color')->nullable();
             $table->timestamps();
         });
     }

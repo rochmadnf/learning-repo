@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('chat_groups', function (Blueprint $table) {
+        Schema::create('group_members', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name');
-            $table->string('avatar')->nullable();
-            $table->text('description')->nullable();
-            $table->foreignUuid('creator_id')->constrained('users')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignUuid('group_id')->constrained('chat_groups')->cascadeOnUpdate()->restrictOnDelete();
+            $table->foreignUuid('member_id')->constrained('users')->cascadeOnUpdate()->restrictOnDelete();
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('chat_groups');
+        Schema::dropIfExists('group_members');
     }
 };

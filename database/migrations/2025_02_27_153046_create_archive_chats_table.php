@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('archive_chats', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->uuid('archived_by');
+            $table->uuidMorphs('from');
             $table->timestamps();
         });
     }
