@@ -10,7 +10,7 @@
         --secondary: 210 40% 96%;
         --secondary-foreground: 215 16% 47%;
 
-        --primary: 0.623 0.214 259.815;
+        --primary: 199 89% 48%;
 
         --success: 0.696 0.17 162.48;
 
@@ -25,11 +25,46 @@
         --secondary: 210 6% 13%;
         --secondary-foreground: 39 6% 47%;
 
-        --primary: 0.488 0.243 264.376;
+        --primary: 224 76% 48%;
 
         --success: 0.508 0.118 165.612;
 
         --destructive: 0 62.8% 30.6%;
         --destructive-foreground: 0 0% 98%;
     }
+}
+
+@layer components {
+    .btn {
+        @apply rounded-lg px-4 py-2 text-sm outline-none;
+    }
+
+    .btn-primary {
+        @apply transition-all bg-primary text-white hover:bg-primary/90 focus:bg-primary/90 focus:ring-4 focus:ring-primary/15;
+    }
+
+    .btn-desctructive {
+        @apply transition-all bg-desctructive text-white hover:bg-desctructive/90 focus:bg-desctructive/90 focus:ring-4 focus:ring-desctructive/15;
+    }
+
+    .btn-success {
+        @apply transition-all bg-success text-white hover:bg-success/90 focus:bg-success/90 focus:ring-4 focus:ring-success/15;
+    }
+
+    .btn-secondary {
+        @apply transition-all bg-background text-foreground hover:bg-secondary focus:bg-secondary focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-background border border-secondary;
+    }
+
+    .form-control {
+        @apply rounded-lg border border-gray-200 bg-background text-foreground outline-none transition-all dark:border-gray-500/25 focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/15 dark:focus-within:border-primary;
+    }
+
+    .form-control:disabled, .form-control[aria-disabled="true"] {
+        @apply cursor-not-allowed bg-secondary/25 focus-within:ring-0 focus-within:border-gray-200 dark:focus-within:border-gray-500/25;
+    }
+
+    .checkbox {
+        @apply rounded border border-gray-200 bg-background text-primary !outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/15 focus:ring-offset-2 focus:ring-offset-background dark:border-gray-500/25;
+    }
+    
 }

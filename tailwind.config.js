@@ -25,7 +25,7 @@ export default {
           foreground: "hsl(var(--secondary-foreground))",
         },
         primary: {
-          DEFAULT: "oklch(var(--primary))",
+          DEFAULT: "hsl(var(--primary))",
         },
         success: {
             DEFAULT: "oklch(var(--success))",
