@@ -1,8 +1,10 @@
-import React from 'react'
+import Navbar from './components/Navbar'
 
 const App = () => {
   return (
-    <div className="border border-red-500">App</div>
+    <main>
+      <Navbar/>
+    </main>
   )
 }
 
