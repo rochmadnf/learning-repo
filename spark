@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Rochmadnf\Cli\Kernel;
+
+// Ambil command dari argument CLI
+$command = $argv[1] ?? null;
+
+// Jalankan kernel
+(new Kernel())->handle($command);

@@ -1,0 +1,20 @@
+{
+    "name": "rochmadnf/cli-termwind",
+    "description": "CLI with Termwind for learn",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Rochmadnf\\Cli\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "rochmadnf",
+            "email": "rochmadnf@gmail.com"
+        }
+    ],
+    "require": {
+        "nunomaduro/termwind": "^2.3"
+    }
+}
