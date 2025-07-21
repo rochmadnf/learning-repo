@@ -1,20 +1,26 @@
 {
-    "name": "rochmadnf/cli-termwind",
-    "description": "CLI with Termwind for learn",
-    "type": "project",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Rochmadnf\\Cli\\": "src/"
-        }
+  "name": "rochmadnf/cli-termwind",
+  "description": "CLI with Termwind for learn",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Rochmadnf\\Cli\\": "src/"
     },
-    "authors": [
-        {
-            "name": "rochmadnf",
-            "email": "rochmadnf@gmail.com"
-        }
-    ],
-    "require": {
-        "nunomaduro/termwind": "^2.3"
+    "files": [
+      "src/Helpers/helpers.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "rochmadnf",
+      "email": "rochmadnf@gmail.com"
     }
+  ],
+  "require": {
+    "nunomaduro/termwind": "^2.3",
+    "laravel/prompts": "^0.3.6",
+    "nesbot/carbon": "^3.10",
+    "guzzlehttp/guzzle": "^7.9"
+  }
 }

@@ -1,0 +1,11 @@
+{
+    "app": {
+        "name": "Awesome PHP Native CLI",
+        "timezone": "Asia/Makassar",
+        "locale": "id"
+    },
+    "auth": {
+        "username": "",
+        "password": ""
+    }
+}
